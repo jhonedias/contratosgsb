@@ -57,10 +57,32 @@ $('#avancar-2').click(function(){
 	//Produtos e serviços
 	if(tipoContrato === 'Produtos e Serviços') {
 		$('.show-produtos-e-servicos').show();
+		$('.hide-produtos-e-servicos').hide();
 	}else {
 		$('.show-produtos-e-servicos').hide();
+		$('.hide-produtos-e-servicos').show();
 	}
 	//
+	//stand alone
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		$('.show-stand-alone').show();
+		$('.hide-stand-alone').hide();
+	}else {
+		$('.show-stand-alone').hide();
+		$('.hide-stand-alone').show();
+	}
+	//Procuração
+	if(tipoContrato === 'Procuração') {
+		$('.show-procuracao').show();
+		$('.hide-procuracao').hide();
+		$('#txt-contratada').text('Outorgado');
+		$('#aviso-pular-etapa').show();
+	}else {
+		$('.show-procuracao').hide();
+		$('.hide-procuracao').show();
+		$('#txt-contratada').text('Contratada');
+		$('#aviso-pular-etapa').hide();
+	}
 	//contratante
 	validaSelect('form1-empresa-contratante');
 	//
@@ -119,6 +141,27 @@ $('#avancar-3').click(function(){
 		//excluir da validação
 		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta', 'form1-forma-de-entrega', 'form1-objeto');
 	}
+	//stand alone
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		validaTxt('Nome-completo-que-assinara-pelo-fornecedor');
+		validaTxt('Cargo-de-quem-assinara-pelo-fornecedor');
+		validaEmail('email-de-quem-assinara-pelo-fornecedor');
+		validaTxt('Nome-da-testemunha');
+		validaEmail('email-da-testemunha');
+		validaTxt('CPF-da-testemunha');
+		excluirValidacao.push('form1-forma-de-entrega', 'form1-objeto');
+	}
+	//procuracao
+	if(tipoContrato === 'Procuração'){
+		validaTxt('Poderes-da-procuracao');
+		validaTxt('Validade-da-procuracao');
+		validaTxt('Periodo-de-vigencia');
+		validaRadio('procuracaoExistente');
+		if($('input[name="procuracaoExistente"]:checked').val() == 'Sim'){
+			validaTxt('Expiracao-da-procuracao');
+		}
+		excluirValidacao.push('form1-objeto','form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
+	}
 	////////////////////////////
 	idsValidaTxt.forEach(function(idCampo) {
 		if (!excluirValidacao.includes(idCampo)) {
@@ -157,6 +200,17 @@ $('#avancar-4').click(function(){
 	if(tipoContrato === 'Termo de Rescisão e Quitação'){
 		excluirValidacao.push('form1-valor-total','form1-condicoes-pgmento')
 	}
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		excluirValidacao.push('form1-condicoes-pgmento');
+	}
+	//stand alone
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		excluirValidacao.push('form1-condicoes-pgmento');
+	}
+	//procuracao
+	if(tipoContrato === 'Procuração'){
+		excluirValidacao.push('form1-valor-total','form1-condicoes-pgmento');
+	}
 	////////////////
 	idsValidaTxt.forEach(function(idCampo) {
 		if (!excluirValidacao.includes(idCampo)) {
@@ -183,7 +237,18 @@ $('#avancar-5').click(function(){
 	if(tipoContrato === 'Termo de Rescisão e Quitação'){
 		excluirValidacao.push('RadioFarmaco');
 	}
-		
+	
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		excluirValidacao.push('form1-local-de-execucao');
+	}
+	//stand alone
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		excluirValidacao.push('form1-local-de-execucao');
+	}
+	//procuracao
+	if(tipoContrato === 'Procuração'){
+		excluirValidacao.push('form1-local-de-execucao','form1-prazo-do-contrato','form1-prazo-inicio','form1-prazo-fim','RadioFarmaco');
+	}
 	//////////
 	idsValidaRadio.forEach(function(idCampo) {
 		if (!excluirValidacao.includes(idCampo)) {
@@ -226,6 +291,13 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
 		validaAnexos('Comprovante-pagamento');
 		validaAnexos('Contrato-ou-Estatuto-Social');
+	}
+	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+		validaAnexos('Proposta-Comercial');
+		validaAnexos('Contrato-ou-Estatuto-Social');
+		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
+		validaAnexos('DD');
+		validaAnexos('documento-que-comprova-os-poderes');
 	}
 	if(controlePassem === false) {
 		return false;
