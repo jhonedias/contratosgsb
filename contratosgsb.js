@@ -31,17 +31,36 @@ $('#avancar-2').click(function(){
 		$('.show-aditivo').show();
 		$('.hide-aditivo').hide();
 		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega, #txt-proposta-comercial').find('.campo-obrigatorio').hide();
+	}else {
+		$('.show-aditivo').hide();
+		$('.hide-aditivo').show();
+		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega, #txt-proposta-comercial').find('.campo-obrigatorio').show();
 	}
 	//work orde
 	if(tipoContrato === 'Work Order'){
 		$('.show-work-order').show();
+	}else {
+		$('.show-work-order').hide();
 	}
 	//termo de recisao
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
 		$('.hide-termo-recisao').hide();
 		$('.show-termo-recisao').show();
 		$('#texto-condicoes-pagamento').text('Informar valores pendentes e a forma de pagamento desses valores');
+		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').hide();
+	}else {
+		$('.hide-termo-recisao').show();
+		$('.show-termo-recisao').hide();
+		$('#texto-condicoes-pagamento').text('Descrever as condições de pagamento, como: número de parcelas, parcela única, outros.');
+		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').show();
 	}
+	//Produtos e serviços
+	if(tipoContrato === 'Produtos e Serviços') {
+		$('.show-produtos-e-serviços').show();
+	}else {
+		$('.show-produtos-e-serviços').hide();
+	}
+	//
 	//contratante
 	validaSelect('form1-empresa-contratante');
 	//
