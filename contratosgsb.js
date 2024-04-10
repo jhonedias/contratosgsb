@@ -56,9 +56,9 @@ $('#avancar-2').click(function(){
 	}
 	//Produtos e serviços
 	if(tipoContrato === 'Produtos e Serviços') {
-		$('.show-produtos-e-serviços').show();
+		$('.show-produtos-e-servicos').show();
 	}else {
-		$('.show-produtos-e-serviços').hide();
+		$('.show-produtos-e-servicos').hide();
 	}
 	//
 	//contratante
