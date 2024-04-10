@@ -98,7 +98,7 @@ $('#avancar-3').click(function(){
 			validaAnexos('Email-obriga-es-com-a-rea');
 		}
 		//excluir da validação
-		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta', 'form1-forma-de-entrega');
+		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta', 'form1-forma-de-entrega', 'form1-objeto');
 	}
 	////////////////////////////
 	idsValidaTxt.forEach(function(idCampo) {
