@@ -32,17 +32,11 @@ $('#avancar-2').click(function(){
 		$('.show-aditivo-anexos').show();
 		$('.hide-aditivo').hide();
 		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega, #txt-proposta-comercial').find('.campo-obrigatorio').hide();
-	}else {
-		$('.show-aditivo').hide();
-		$('.hide-aditivo').show();
-		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega, #txt-proposta-comercial').find('.campo-obrigatorio').show();
 	}
 	//work orde
 	if(tipoContrato === 'Work Order'){
 		$('.show-work-order').show();
 		$('.show-work-order-anexos').show();
-	}else {
-		$('.show-work-order').hide();
 	}
 	//termo de recisao
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
@@ -51,20 +45,12 @@ $('#avancar-2').click(function(){
 		('.show-termo-recisao-anexos').show();
 		$('#texto-condicoes-pagamento').text('Informar valores pendentes e a forma de pagamento desses valores');
 		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').hide();
-	}else {
-		$('.hide-termo-recisao').show();
-		$('.show-termo-recisao').hide();
-		$('#texto-condicoes-pagamento').text('Descrever as condições de pagamento, como: número de parcelas, parcela única, outros.');
-		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').show();
 	}
 	//Produtos e serviços
 	if(tipoContrato === 'Produtos e Serviços') {
 		$('.show-produtos-e-servicos').show();
 		$('.show-produtos-e-servicos-anexos').show();
 		$('.hide-produtos-e-servicos').hide();
-	}else {
-		$('.show-produtos-e-servicos').hide();
-		$('.hide-produtos-e-servicos').show();
 	}
 	//
 	//stand alone
@@ -72,9 +58,6 @@ $('#avancar-2').click(function(){
 		$('.show-stand-alone').show();
 		$('.show-stand-alone-anexos').show();
 		$('.hide-stand-alone').hide();
-	}else {
-		$('.show-stand-alone').hide();
-		$('.hide-stand-alone').show();
 	}
 	//Procuração
 	if(tipoContrato === 'Procuração') {
@@ -83,20 +66,12 @@ $('#avancar-2').click(function(){
 		$('.hide-procuracao').hide();
 		$('#txt-contratada').text('Outorgado');
 		$('#aviso-pular-etapa').show();
-	}else {
-		$('.show-procuracao').hide();
-		$('.hide-procuracao').show();
-		$('#txt-contratada').text('Contratada');
-		$('#aviso-pular-etapa').hide();
 	}
 	//Master
 	if(tipoContrato === 'Master') {
 		$('.show-master').show();
 		$('.show-master-anexos').show();
 		$('.hide-master').hide();
-	}else {
-		$('.show-master').hide();
-		$('.hide-master').show();
 	}
 	//CDA
 	if(tipoContrato === 'CDA') {
@@ -107,29 +82,18 @@ $('#avancar-2').click(function(){
 		$('#txt-contratada-complemento').text('Inserir nome completo da parte. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
 		$('#txt-radio--dadoscadastrais-pj').text('Parte pessoa jurídica');
 		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
-	}else {
-		$('.show-cda').hide();
-		$('.hide-cda').show();
-		$('#txt-contratada').text('Contratada');
-		$('#txt-contratada-complemento').text('Inserir nome completo da Contratada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
 	}
 	//patrocinio
 	if(tipoContrato === 'Patrocínio') {
 		$('.show-patrocinio').show();
 		$('.show-patrocinio-anexos').show();
 		$('.hide-patrocinio').hide();
-	}else {
-		$('.show-patrocinio').hide();
-		$('.hide-patrocinio').show();
 	}
 	//Speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
 		$('.show-speaker').show();
 		$('.show-speaker-anexos').show();
 		$('.hide-speaker').hide();
-	}else{
-		$('.show-speaker').hide();
-		$('.hide-speaker').show();
 	}
 	//contratante
 	validaSelect('form1-empresa-contratante');
@@ -494,9 +458,21 @@ function voltarStep(origem, destino){
 	$('#slide-form-'+destino).fadeIn();
 }
 
+function reiniciaForm(){
+	$('.campos-extra').hide();
+	$('.anexos-do-contrato').hide();
+	$('.campo-inicial').show();
+	$('#texto-condicoes-pagamento').text('Descrever as condições de pagamento, como: número de parcelas, parcela única, outros.');
+	$('#txt-contratada').text('Contratada');
+	$('#txt-contratada-complemento').text('Inserir nome completo da Contratada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
+	$('#txt-radio--dadoscadastrais-pj').text('Contratada pessoa jurídica');
+	$('#txt-radio--dadoscadastrais-pf').text('Contratada pessoa física');
+}
+
 //setagem dos botoes de voltar
 $('#voltar1').click(function(){
 	voltarStep('2', '1');
+	reiniciaForm();
 });
 $('#voltar2').click(function(){
 	voltarStep('3', '2');
