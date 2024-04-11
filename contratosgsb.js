@@ -29,6 +29,7 @@ $('#avancar-2').click(function(){
 	//aditivo
 	if(tipoContrato === 'Aditivo'){
 		$('.show-aditivo').show();
+		$('.show-aditivo-anexos').show();
 		$('.hide-aditivo').hide();
 		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega, #txt-proposta-comercial').find('.campo-obrigatorio').hide();
 	}else {
@@ -39,6 +40,7 @@ $('#avancar-2').click(function(){
 	//work orde
 	if(tipoContrato === 'Work Order'){
 		$('.show-work-order').show();
+		$('.show-work-order-anexos').show();
 	}else {
 		$('.show-work-order').hide();
 	}
@@ -46,6 +48,7 @@ $('#avancar-2').click(function(){
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
 		$('.hide-termo-recisao').hide();
 		$('.show-termo-recisao').show();
+		('.show-termo-recisao-anexos').show();
 		$('#texto-condicoes-pagamento').text('Informar valores pendentes e a forma de pagamento desses valores');
 		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').hide();
 	}else {
@@ -57,6 +60,7 @@ $('#avancar-2').click(function(){
 	//Produtos e serviços
 	if(tipoContrato === 'Produtos e Serviços') {
 		$('.show-produtos-e-servicos').show();
+		$('.show-produtos-e-servicos-anexos').show();
 		$('.hide-produtos-e-servicos').hide();
 	}else {
 		$('.show-produtos-e-servicos').hide();
@@ -66,6 +70,7 @@ $('#avancar-2').click(function(){
 	//stand alone
 	if(tipoContrato === 'Produtos Comercial Stand Alone') {
 		$('.show-stand-alone').show();
+		$('.show-stand-alone-anexos').show();
 		$('.hide-stand-alone').hide();
 	}else {
 		$('.show-stand-alone').hide();
@@ -74,6 +79,7 @@ $('#avancar-2').click(function(){
 	//Procuração
 	if(tipoContrato === 'Procuração') {
 		$('.show-procuracao').show();
+		$('.show-procuracao-anexos').show();
 		$('.hide-procuracao').hide();
 		$('#txt-contratada').text('Outorgado');
 		$('#aviso-pular-etapa').show();
@@ -86,6 +92,7 @@ $('#avancar-2').click(function(){
 	//Master
 	if(tipoContrato === 'Master') {
 		$('.show-master').show();
+		$('.show-master-anexos').show();
 		$('.hide-master').hide();
 	}else {
 		$('.show-master').hide();
@@ -94,6 +101,7 @@ $('#avancar-2').click(function(){
 	//CDA
 	if(tipoContrato === 'CDA') {
 		$('.show-cda').show();
+		$('.show-cda-anexos').show();
 		$('.hide-cda').hide();
 		$('#txt-contratada').text('Parte');
 		$('#txt-contratada-complemento').text('Inserir nome completo da parte. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
@@ -108,6 +116,7 @@ $('#avancar-2').click(function(){
 	//patrocinio
 	if(tipoContrato === 'Patrocínio') {
 		$('.show-patrocinio').show();
+		$('.show-patrocinio-anexos').show();
 		$('.hide-patrocinio').hide();
 	}else {
 		$('.show-patrocinio').hide();
@@ -116,6 +125,7 @@ $('#avancar-2').click(function(){
 	//Speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
 		$('.show-speaker').show();
+		$('.show-speaker-anexos').show();
 		$('.hide-speaker').hide();
 	}else{
 		$('.show-speaker').hide();
@@ -349,6 +359,11 @@ $('#avancar-5').click(function(){
 	idsValidaTxt.forEach(function(idCampo) {
 		if (!excluirValidacao.includes(idCampo)) {
 			validaTxt(idCampo);
+		}
+	});
+	idsValidaSelect.forEach(function(idCampo) {
+		if (!excluirValidacao.includes(idCampo)) {
+			validaSelect(idCampo);
 		}
 	});
 	/////////////
