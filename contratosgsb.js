@@ -42,7 +42,7 @@ $('#avancar-2').click(function(){
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
 		$('.hide-termo-recisao').hide();
 		$('.show-termo-recisao').show();
-		('.show-termo-recisao-anexos').show();
+		$('.show-termo-recisao-anexos').show();
 		$('#texto-condicoes-pagamento').text('Informar valores pendentes e a forma de pagamento desses valores');
 		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').hide();
 	}
