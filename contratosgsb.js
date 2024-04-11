@@ -83,6 +83,44 @@ $('#avancar-2').click(function(){
 		$('#txt-contratada').text('Contratada');
 		$('#aviso-pular-etapa').hide();
 	}
+	//Master
+	if(tipoContrato === 'Master') {
+		$('.show-master').show();
+		$('.hide-master').hide();
+	}else {
+		$('.show-master').hide();
+		$('.hide-master').show();
+	}
+	//CDA
+	if(tipoContrato === 'CDA') {
+		$('.show-cda').show();
+		$('.hide-cda').hide();
+		$('#txt-contratada').text('Parte');
+		$('#txt-contratada-complemento').text('Inserir nome completo da parte. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
+		$('#txt-radio--dadoscadastrais-pj').text('Parte pessoa jurídica');
+		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
+	}else {
+		$('.show-cda').hide();
+		$('.hide-cda').show();
+		$('#txt-contratada').text('Contratada');
+		$('#txt-contratada-complemento').text('Inserir nome completo da Contratada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
+	}
+	//patrocinio
+	if(tipoContrato === 'Patrocínio') {
+		$('.show-patrocinio').show();
+		$('.hide-patrocinio').hide();
+	}else {
+		$('.show-patrocinio').hide();
+		$('.hide-patrocinio').show();
+	}
+	//Speaker
+	if(tipoContrato === 'Speaker (master/eventual)') {
+		$('.show-speaker').show();
+		$('.hide-speaker').hide();
+	}else{
+		$('.show-speaker').hide();
+		$('.hide-speaker').show();
+	}
 	//contratante
 	validaSelect('form1-empresa-contratante');
 	//
@@ -162,6 +200,24 @@ $('#avancar-3').click(function(){
 		}
 		excluirValidacao.push('form1-objeto','form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
 	}
+	//MAster
+	if(tipoContrato === 'Master'){
+		validaRadio('tabelaDeServicos');
+		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta');
+	}
+	//CDA
+	if(tipoContrato === 'CDA'){
+		validaTxt('Finalidade');
+		excluirValidacao.push('form1-objeto','form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
+	}
+	//patrocinio
+	if(tipoContrato === 'Patrocínio') {
+		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
+	}
+	//Speaker
+	if(tipoContrato === 'Speaker (master/eventual)') {
+		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
+	}
 	////////////////////////////
 	idsValidaTxt.forEach(function(idCampo) {
 		if (!excluirValidacao.includes(idCampo)) {
@@ -211,6 +267,21 @@ $('#avancar-4').click(function(){
 	if(tipoContrato === 'Procuração'){
 		excluirValidacao.push('form1-valor-total','form1-condicoes-pgmento');
 	}
+	//Master
+	if(tipoContrato === 'Master'){
+		excluirValidacao.push('form1-valor-total','form1-condicoes-pgmento');
+	}
+	//CDA
+	if(tipoContrato === 'CDA'){
+		excluirValidacao.push('form1-valor-total','form1-condicoes-pgmento');
+	}
+	//spekaer
+	if(tipoContrato === 'Speaker (master/eventual)'){
+		validaTxt('CPF-speaker');
+		validaTxt('Numero-conselho---uf');
+		validaEmail('Email-speaker');
+		validaTxt('Endereco-do-speaker');
+	}
 	////////////////
 	idsValidaTxt.forEach(function(idCampo) {
 		if (!excluirValidacao.includes(idCampo)) {
@@ -248,6 +319,19 @@ $('#avancar-5').click(function(){
 	//procuracao
 	if(tipoContrato === 'Procuração'){
 		excluirValidacao.push('form1-local-de-execucao','form1-prazo-do-contrato','form1-prazo-inicio','form1-prazo-fim','RadioFarmaco');
+	}
+	//CDA 
+	if(tipoContrato === 'CDA'){
+		excluirValidacao.push('form1-local-de-execucao');
+	}
+	//patrocinio
+	if(tipoContrato === 'Patrocínio') {
+		validaTxt('Banco','Agencia','Conta');
+		excluirValidacao.push('form1-local-de-execucao');
+	}
+	//speaker
+	if(tipoContrato === 'Speaker (master/eventual)') {
+		validaTxt('Banco','Agencia','Conta');
 	}
 	//////////
 	idsValidaRadio.forEach(function(idCampo) {
@@ -298,6 +382,20 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
 		validaAnexos('DD');
 		validaAnexos('documento-que-comprova-os-poderes');
+	}
+	if(tipoContrato === 'Master'){
+		validaAnexos('Contrato-ou-Estatuto-Social');
+		validaAnexos('DD');
+	}
+	if(tipoContrato === 'Patrocínio'){
+		validaAnexos('Contrato-ou-Estatuto-Social');
+		validaAnexos('Proposta-Comercial');
+		validaAnexos('RFA-ou-g360');
+		validaAnexos('Mapa-de-stand');
+	}
+	if(tipoContrato === 'Speaker (master/eventual)'){
+		validaAnexos('Contrato-ou-Estatuto-Social');
+		validaAnexos('RFA-ou-g360');
 	}
 	if(controlePassem === false) {
 		return false;
