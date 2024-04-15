@@ -154,7 +154,7 @@ $('#avancar-3').click(function(){
 		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta', 'form1-forma-de-entrega', 'form1-objeto');
 	}
 	//stand alone
-	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+	if(tipoContrato === 'Proposta Comercial Stand Alone') {
 		validaTxt('Nome-completo-que-assinara-pelo-fornecedor');
 		validaTxt('Cargo-de-quem-assinara-pelo-fornecedor');
 		validaEmail('email-de-quem-assinara-pelo-fornecedor');
@@ -230,7 +230,7 @@ $('#avancar-4').click(function(){
 	if(tipoContrato === 'Termo de Rescisão e Quitação'){
 		excluirValidacao.push('form1-valor-total','form1-condicoes-pgmento')
 	}
-	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+	if(tipoContrato === 'Proposta Comercial Stand Alone') {
 		excluirValidacao.push('form1-condicoes-pgmento');
 	}
 	//stand alone
@@ -283,7 +283,7 @@ $('#avancar-5').click(function(){
 		excluirValidacao.push('RadioFarmaco', 'form1-local-de-execucao');
 	}
 	
-	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+	if(tipoContrato === 'Proposta Comercial Stand Alone') {
 		excluirValidacao.push('form1-local-de-execucao');
 	}
 	//stand alone
