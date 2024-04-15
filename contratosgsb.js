@@ -54,7 +54,7 @@ $('#avancar-2').click(function(){
 	}
 	//
 	//stand alone
-	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+	if(tipoContrato === 'Proposta Comercial Stand Alone') {
 		$('.show-stand-alone').show();
 		$('.show-stand-alone-anexos').show();
 		$('.hide-stand-alone').hide();
