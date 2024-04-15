@@ -280,7 +280,7 @@ $('#avancar-5').click(function(){
 	}
 	
 	if(tipoContrato === 'Termo de Rescisão e Quitação'){
-		excluirValidacao.push('RadioFarmaco');
+		excluirValidacao.push('RadioFarmaco', 'form1-local-de-execucao');
 	}
 	
 	if(tipoContrato === 'Produtos Comercial Stand Alone') {
