@@ -65,6 +65,7 @@ $('#avancar-2').click(function(){
 		$('.show-procuracao-anexos').show();
 		$('.hide-procuracao').hide();
 		$('#txt-contratada').text('Outorgado');
+		$('#txt-contratada-complemento').text('Inserir nome completo da Outorgada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.*');
 		$('#aviso-pular-etapa').show();
 	}
 	//Master
