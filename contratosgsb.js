@@ -307,6 +307,7 @@ $('#avancar-5').click(function(){
 	//speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
 		validaTxt('Banco','Agencia','Conta');
+		excluirValidacao.push('form1-local-de-execucao');
 	}
 	//////////
 	idsValidaRadio.forEach(function(idCampo) {
