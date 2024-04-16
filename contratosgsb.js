@@ -231,9 +231,13 @@ $('#avancar-4').click(function(){
 		
 		if(verificaCNPJ2 !== ''){
 			$('.anexo-outros-cnpj-2').show();
+		}else {
+			$('.anexo-outros-cnpj-2').hide();
 		}
 		if(verificaCNPJ3 !== ''){
 			$('.anexo-outros-cnpj-3').show();
+		}else {
+			$('.anexo-outros-cnpj-3').hide();
 		}
 	}
 	
