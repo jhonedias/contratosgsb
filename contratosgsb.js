@@ -226,8 +226,8 @@ $('#avancar-4').click(function(){
 	}
 	
 	if(tipoContrato === 'Produtos e Serviços'){
-		var verificaCNPJ2 = $('#form1-dados-cadastrais-cnpj-2').text();
-		var verificaCNPJ3 = $('#form1-dados-cadastrais-cnpj-3').text();
+		var verificaCNPJ2 = $('#form1-dados-cadastrais-cnpj-2').val();
+		var verificaCNPJ3 = $('#form1-dados-cadastrais-cnpj-3').val();
 		
 		if(verificaCNPJ2 !== ''){
 			$('.anexo-outros-cnpj-2').show();
@@ -391,8 +391,8 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('RFA-ou-g360');
 	}
 	if(tipoContrato === 'Produtos e Serviços') {
-		var verificaCnpj2 = $('.anexo-outros-cnpj-2').text();
-		var verificaCnpj3 = $('.anexo-outros-cnpj-3').text();
+		var verificaCnpj2 = $('.form1-dados-cadastrais-cnpj-2').val();
+		var verificaCnpj3 = $('.form1-dados-cadastrais-cnpj-3').val();
 		
 		validaAnexos('Proposta-Comercial');
 		validaAnexos('Contrato-ou-Estatuto-Social');
