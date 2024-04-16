@@ -225,6 +225,18 @@ $('#avancar-4').click(function(){
 		$('#form1-dados-cadastrais-cnpj-1').removeClass('validacao-erro');
 	}
 	
+	if(tipoContrato === 'Produtos e Serviços'){
+		var verificaCNPJ2 = $('#form1-dados-cadastrais-cnpj-2').text();
+		var verificaCNPJ3 = $('#form1-dados-cadastrais-cnpj-3').text();
+		
+		if(verificaCNPJ2 !== ''){
+			$('.anexo-outros-cnpj-2').show();
+		}
+		if(verificaCNPJ3 !== ''){
+			$('.anexo-outros-cnpj-3').show();
+		}
+	}
+	
 	if(tipoContrato === 'Aditivo'){
 		excluirValidacao.push('form1-condicoes-pgmento','form1-valor-total');
 	}
@@ -357,7 +369,7 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('Comprovante-pagamento');
 		validaAnexos('Contrato-ou-Estatuto-Social');
 	}
-	if(tipoContrato === 'Produtos Comercial Stand Alone') {
+	if(tipoContrato === 'Proposta Comercial Stand Alone') {
 		validaAnexos('Proposta-Comercial');
 		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
@@ -377,6 +389,25 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 	if(tipoContrato === 'Speaker (master/eventual)'){
 		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('RFA-ou-g360');
+	}
+	if(tipoContrato === 'Produtos e Serviços') {
+		var verificaCnpj2 = $('.anexo-outros-cnpj-2').text();
+		var verificaCnpj3 = $('.anexo-outros-cnpj-3').text();
+		
+		validaAnexos('Proposta-Comercial');
+		validaAnexos('Contrato-ou-Estatuto-Social');
+		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
+		validaAnexos('DD');
+		
+		if(verificaCnpj2 !== ''){
+			validaAnexos('Contrato-ou-Estatuto-Social-2');
+			validaAnexos('DD-2');
+		}
+		
+		if(verificaCnpj3 !== ''){
+			validaAnexos('Contrato-ou-Estatuto-Social-3');
+			validaAnexos('DD-3');
+		}
 	}
 	if(controlePassem === false) {
 		return false;
