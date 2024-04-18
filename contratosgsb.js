@@ -1,3 +1,4 @@
+//v1.0 - 18/04/2024
 $(".format-data").mask("99/99/9999");
 $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
@@ -31,7 +32,7 @@ $('#avancar-2').click(function(){
 		$('.show-aditivo').show();
 		$('.show-aditivo-anexos').show();
 		$('.hide-aditivo').hide();
-		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega, #txt-proposta-comercial').find('.campo-obrigatorio').hide();
+		$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-proposta-comercial').find('.campo-obrigatorio').hide();
 	}
 	//work orde
 	if(tipoContrato === 'Work Order'){
@@ -44,7 +45,7 @@ $('#avancar-2').click(function(){
 		$('.show-termo-recisao').show();
 		$('.show-termo-recisao-anexos').show();
 		$('#texto-condicoes-pagamento').text('Informar valores pendentes e a forma de pagamento desses valores');
-		$('#form1-condicoes-pgmento').find('.campo-obrigatorio').hide();
+		$('#txt-condicoes-pagamento, #txt-comprovante-pagamento').find('.campo-obrigatorio').hide();
 	}
 	//Produtos e serviços
 	if(tipoContrato === 'Produtos e Serviços') {
@@ -64,8 +65,10 @@ $('#avancar-2').click(function(){
 		$('.show-procuracao').show();
 		$('.show-procuracao-anexos').show();
 		$('.hide-procuracao').hide();
-		$('#txt-contratada').text('Outorgado');
+		$('#txt-contratada').text('Outorgado (pessoa que vai receber os poderes)');
 		$('#txt-contratada-complemento').text('Inserir nome completo da Outorgada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.*');
+		$('#txt-radio--dadoscadastrais-pj').text('Outorgado pessoa jurídica');
+		$('#txt-radio--dadoscadastrais-pf').text('Outorgado pessoa física');
 		$('#aviso-pular-etapa').show();
 	}
 	//Master
@@ -137,8 +140,14 @@ $('#avancar-3').click(function(){
 	}
 	//contrato termo de recisão e quitação
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
-		validaRadio('servicosEmPrestacao');
-		validaRadio('ProdutosEntregues');
+		validaRadio('ProdutosOuServicos');
+		if($('input[name="ProdutosOuServicos"]:checked').val() == 'Produtos'){
+			validaRadio('ProdutosEntregues');
+			
+		}else {
+			validaRadio('servicosEmPrestacao');
+		}
+		
 		validaRadio('ValorIntegralPago');
 		if($('input[name="ValorIntegralPago"]:checked').val() == 'Nao'){
 			validaTxt('Complemento-do-valor-integral-pago');
@@ -170,9 +179,6 @@ $('#avancar-3').click(function(){
 		validaTxt('Validade-da-procuracao');
 		validaTxt('Periodo-de-vigencia');
 		validaRadio('procuracaoExistente');
-		if($('input[name="procuracaoExistente"]:checked').val() == 'Sim'){
-			validaTxt('Expiracao-da-procuracao');
-		}
 		excluirValidacao.push('form1-objeto','form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
 	}
 	//MAster
@@ -292,20 +298,8 @@ $('#avancar-5').click(function(){
 	idsValidaSelect = ['form1-local-de-execucao'];
 	idsValidaRadio = ['RadioFarmaco'];
 	
-	if(tipoContrato === 'Aditivo'){
-		excluirValidacao.push('form1-local-de-execucao');
-	}
-	
 	if(tipoContrato === 'Termo de Rescisão e Quitação'){
 		excluirValidacao.push('RadioFarmaco', 'form1-local-de-execucao');
-	}
-	
-	if(tipoContrato === 'Proposta Comercial Stand Alone') {
-		excluirValidacao.push('form1-local-de-execucao');
-	}
-	//stand alone
-	if(tipoContrato === 'Produtos Comercial Stand Alone') {
-		excluirValidacao.push('form1-local-de-execucao');
 	}
 	//procuracao
 	if(tipoContrato === 'Procuração'){
@@ -358,6 +352,9 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 	var tipoContrato = $('#tipo-contrato').val();
 	if(tipoContrato === 'Work Order'){
 		validaAnexos('Contrato-Principal-Contrato-Master');
+		if($('input[name="AditivoMaster"]:checked').val() == 'Sim'){
+			validaAnexos('Aditivo-ao-master');
+		}
 		validaAnexos('Proposta-Comercial');
 		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
@@ -370,7 +367,6 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('DD');
 	}
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
-		validaAnexos('Comprovante-pagamento');
 		validaAnexos('Contrato-ou-Estatuto-Social');
 	}
 	if(tipoContrato === 'Proposta Comercial Stand Alone') {
@@ -541,6 +537,16 @@ $(document).ready(function(){
         currentIndex2++;
         $('#form1-dados-cadastrais-cpf-' + currentIndex2).removeClass('hide');
         if (currentIndex2 === 3) {
+            $(this).addClass('hidden');
+        }
+    });
+});
+$(document).ready(function(){
+    var currentIndex3 = 1;
+    $('#plus-email').click(function() {
+        currentIndex3++;
+        $('#Email-de-quem-recebera-o-serivco---' + currentIndex2).removeClass('hide');
+        if (currentIndex3 === 3) {
             $(this).addClass('hidden');
         }
     });
