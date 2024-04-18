@@ -66,7 +66,7 @@ $('#avancar-2').click(function(){
 		$('.show-procuracao-anexos').show();
 		$('.hide-procuracao').hide();
 		$('#txt-contratada').text('Outorgado (pessoa que vai receber os poderes)');
-		$('#txt-contratada-complemento').text('Inserir nome completo da Outorgada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.*');
+		$('#txt-contratada-complemento').text('Inserir nome completo da Outorgada.');
 		$('#txt-radio--dadoscadastrais-pj').text('Outorgado pessoa jurídica');
 		$('#txt-radio--dadoscadastrais-pf').text('Outorgado pessoa física');
 		$('#aviso-pular-etapa').show();
@@ -83,7 +83,7 @@ $('#avancar-2').click(function(){
 		$('.show-cda-anexos').show();
 		$('.hide-cda').hide();
 		$('#txt-contratada').text('Parte');
-		$('#txt-contratada-complemento').text('Inserir nome completo da parte. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
+		$('#txt-contratada-complemento').text('Inserir nome completo da parte.');
 		$('#txt-radio--dadoscadastrais-pj').text('Parte pessoa jurídica');
 		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
 	}
@@ -497,7 +497,7 @@ function reiniciaForm(){
 	$('.campo-inicial').show();
 	$('#texto-condicoes-pagamento').text('Descrever as condições de pagamento, como: número de parcelas, parcela única, outros.');
 	$('#txt-contratada').text('Contratada');
-	$('#txt-contratada-complemento').text('Inserir nome completo da Contratada. Em caso de múltiplos contatos com HCP (pessoa física ou clínica), por favor listar cada um dos nomes, de forma clara.');
+	$('#txt-contratada-complemento').text('Inserir nome completo da Contratada.');
 	$('#txt-radio--dadoscadastrais-pj').text('Contratada pessoa jurídica');
 	$('#txt-radio--dadoscadastrais-pf').text('Contratada pessoa física');
 }
