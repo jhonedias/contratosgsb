@@ -545,7 +545,7 @@ $(document).ready(function(){
     var currentIndex3 = 1;
     $('#plus-email').click(function() {
         currentIndex3++;
-        $('#Email-de-quem-recebera-o-serivco---' + currentIndex2).removeClass('hide');
+        $('#Email-de-quem-recebera-o-serivco---' + currentIndex3).removeClass('hide');
         if (currentIndex3 === 3) {
             $(this).addClass('hidden');
         }
