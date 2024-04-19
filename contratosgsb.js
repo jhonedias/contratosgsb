@@ -76,6 +76,7 @@ $('#avancar-2').click(function(){
 		$('.show-master').show();
 		$('.show-master-anexos').show();
 		$('.hide-master').hide();
+		$('#txt-tabela-de-servicos').find('.campo-obrigatorio').hide();
 	}
 	//CDA
 	if(tipoContrato === 'CDA') {
