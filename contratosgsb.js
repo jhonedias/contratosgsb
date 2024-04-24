@@ -501,6 +501,7 @@ function reiniciaForm(){
 	$('#txt-contratada-complemento').text('Inserir nome completo da Contratada.');
 	$('#txt-radio--dadoscadastrais-pj').text('Contratada pessoa jurídica');
 	$('#txt-radio--dadoscadastrais-pf').text('Contratada pessoa física');
+	$('#aviso-pular-etapa').hide();
 }
 
 //setagem dos botoes de voltar
