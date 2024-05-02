@@ -2,7 +2,7 @@
 $(".format-data").mask("99/99/9999");
 $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
-$(".format-reais").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.',decimal:',', affixesStay: false});
+$(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 var controlePassem = true;
 //Etapa 1
 $('#avancar-1').click(function(){
@@ -96,6 +96,7 @@ $('#avancar-2').click(function(){
 	}
 	//Speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
+		$('#txt-contrato-social').find('.campo-obrigatorio').hide();
 		$('.show-speaker').show();
 		$('.show-speaker-anexos').show();
 		$('.hide-speaker').hide();
@@ -197,11 +198,12 @@ $('#avancar-3').click(function(){
 	}
 	//patrocinio
 	if(tipoContrato === 'Patrocínio') {
+		validaTxt('contrapartidas');
 		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
 	}
 	//Speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
-		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega');
+		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta','form1-forma-de-entrega','form1-contratada','form1-contratada-complemento');
 	}
 	////////////////////////////
 	idsValidaTxt.forEach(function(idCampo) {
@@ -394,7 +396,6 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('Mapa-de-stand');
 	}
 	if(tipoContrato === 'Speaker (master/eventual)'){
-		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('RFA-ou-g360');
 	}
 	if(tipoContrato === 'Produtos e Serviços') {
@@ -501,7 +502,7 @@ function voltarStep(origem, destino){
 function reiniciaForm(){
 	$('.campos-extra').hide();
 	$('.anexos-do-contrato').hide();
-	$('.campo-inicial').show();
+	$('.campo-inicial, .campo-obrigatorio').show();
 	$('#texto-condicoes-pagamento').text('Descrever as condições de pagamento, como: número de parcelas, parcela única, outros.');
 	$('#txt-contratada').text('Contratada');
 	$('#txt-contratada-complemento').text('Inserir nome completo da Contratada.');
