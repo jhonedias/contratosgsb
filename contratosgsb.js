@@ -128,6 +128,9 @@ $('#avancar-3').click(function(){
 	//contrato aditivo
 	if(tipoContrato === 'Aditivo'){
 		validaRadio('Prorrogar-Prazo');
+		validaTxt('Prazo-do-contrato-aditivo');
+		validaTxt('Prazo---in-cio-da-vig-ncia-aditivo');
+		validaTxt('Prazo---fim-da-vig-ncia-aditivo');
 		if($('input[name="Prorrogar-Prazo"]:checked').val() === 'Sim'){
 			validaTxt('aditivo-informe-o-prazo');
 		}
@@ -299,6 +302,9 @@ $('#avancar-5').click(function(){
 	idsValidaSelect = ['form1-local-de-execucao'];
 	idsValidaRadio = ['RadioFarmaco'];
 	
+	if(tipoContrato === 'Aditivo'){
+		excluirValidacao.push('form1-prazo-do-contrato','form1-prazo-inicio','form1-prazo-fim');
+	}
 	if(tipoContrato === 'Termo de Rescisão e Quitação'){
 		excluirValidacao.push('RadioFarmaco', 'form1-local-de-execucao');
 	}
