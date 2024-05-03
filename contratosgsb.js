@@ -542,8 +542,7 @@ $(document).ready(function(){
             $(this).addClass('hidden');
         }
     });
-});
-$(document).ready(function(){
+
     var currentIndex2 = 1;
     $('#plus-cpf').click(function() {
         currentIndex2++;
@@ -552,8 +551,7 @@ $(document).ready(function(){
             $(this).addClass('hidden');
         }
     });
-});
-$(document).ready(function(){
+
     var currentIndex3 = 1;
     $('#plus-email').click(function() {
         currentIndex3++;
@@ -562,4 +560,11 @@ $(document).ready(function(){
             $(this).addClass('hidden');
         }
     });
+	
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			var visibleStep = $(".slide-muti-step.visible");
+			visibleStep.find(".next-step").click();
+		}
+	});
 });
