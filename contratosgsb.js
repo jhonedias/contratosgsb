@@ -100,6 +100,7 @@ $('#avancar-2').click(function(){
 		$('.show-speaker').show();
 		$('.show-speaker-anexos').show();
 		$('.hide-speaker').hide();
+		$('#form1-valor-total').maskMoney({prefix:'', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 	}
 	//contratante
 	validaSelect('form1-empresa-contratante');
@@ -510,6 +511,7 @@ function reiniciaForm(){
 	$('#txt-radio--dadoscadastrais-pj').text('Contratada pessoa jurídica');
 	$('#txt-radio--dadoscadastrais-pf').text('Contratada pessoa física');
 	$('#aviso-pular-etapa').hide();
+	$(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 }
 
 //setagem dos botoes de voltar
