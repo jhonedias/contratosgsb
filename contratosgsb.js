@@ -281,6 +281,7 @@ $('#avancar-4').click(function(){
 	//spekaer
 	if(tipoContrato === 'Speaker (master/eventual)'){
 		validaTxt('CPF-speaker');
+		validaTxt('moeda');
 		validaTxt('Numero-conselho---uf');
 		validaEmail('Email-speaker');
 		validaTxt('Endereco-do-speaker');
