@@ -563,7 +563,9 @@ $(document).ready(function(){
 	
 	$(document).keypress(function(e) {
 		if(e.which == 13) {
-			var visibleStep = $(".slide-muti-step.visible");
+			var visibleStep = $(".slide-muti-step").filter(function() {
+	                    return $(this).css('display') !== 'none';
+	                });
 			visibleStep.find(".next-step").click();
 		}
 	});
