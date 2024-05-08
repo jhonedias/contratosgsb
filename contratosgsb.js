@@ -37,6 +37,7 @@ $('#avancar-2').click(function(){
 	//work orde
 	if(tipoContrato === 'Work Order'){
 		$('.show-work-order').show();
+		$('.hide-work-order').hide();
 		$('.show-work-order-anexos').show();
 	}
 	//termo de recisao
