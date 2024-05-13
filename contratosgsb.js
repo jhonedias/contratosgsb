@@ -562,6 +562,15 @@ $(document).ready(function(){
         }
     });
 	
+	var currentIndex4 = 1;
+    $('#plus-testemunha').click(function() {
+        currentIndex4++;
+        $('#box-segunda-testemunha-' + currentIndex4).removeClass('hide');
+        if (currentIndex4 === 2) {
+            $(this).addClass('hidden');
+        }
+    });
+	
 	$(document).keypress(function(e) {
 		if(e.which == 13) {
 			var visibleStep = $(".slide-muti-step").filter(function() {
