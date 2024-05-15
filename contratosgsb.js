@@ -88,6 +88,7 @@ $('#avancar-2').click(function(){
 		$('#txt-contratada-complemento').text('Inserir nome completo da parte.');
 		$('#txt-radio--dadoscadastrais-pj').text('Parte pessoa jurídica');
 		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
+		$('#txt-due-diligence-1, #txt-due-diligence-2, #txt-due-diligence-3').find('.campo-obrigatorio').hide();
 	}
 	//patrocinio
 	if(tipoContrato === 'Patrocínio') {
@@ -419,6 +420,9 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 			validaAnexos('Contrato-ou-Estatuto-Social-3');
 			validaAnexos('DD-3');
 		}
+	}
+	if(tipoContrato === 'CDA') {
+		validaAnexos('Contrato-ou-Estatuto-Social');
 	}
 	if(controlePassem === false) {
 		return false;
