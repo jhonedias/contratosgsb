@@ -95,6 +95,7 @@ $('#avancar-2').click(function(){
 		$('.show-patrocinio').show();
 		$('.show-patrocinio-anexos').show();
 		$('.hide-patrocinio').hide();
+		$('#plus-cpf, #plus-cnpj').hide();
 	}
 	//Speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
@@ -340,7 +341,9 @@ $('#avancar-5').click(function(){
 				if(verificaFarmacovigilancia === 'Necessaria'){
 					//valida os 3 checks
 					validaRadio('farmacovigilancia-opcoes');
-					validaAnexos('form1-documento-farmacovigilancia');
+					if(tipoContrato !== 'Speaker (master/eventual)' && tipoContrato !== 'Patrocínio'){
+						validaAnexos('form1-documento-farmacovigilancia');
+					}
 				}
 			}
 		}
@@ -517,6 +520,7 @@ function reiniciaForm(){
 	$('#txt-radio--dadoscadastrais-pf').text('Contratada pessoa física');
 	$('#aviso-pular-etapa').hide();
 	$(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
+	$('#plus-cpf, #plus-cnpj').show();
 }
 
 //setagem dos botoes de voltar
