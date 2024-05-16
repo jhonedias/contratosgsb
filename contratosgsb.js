@@ -414,12 +414,12 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
 		validaAnexos('DD');
 		
-		if(verificaCnpj2 !== ''){
+		if(verificaCnpj2 && verificaCnpj2.trim() !== ""){
 			validaAnexos('Contrato-ou-Estatuto-Social-2');
 			validaAnexos('DD-2');
 		}
 		
-		if(verificaCnpj3 !== ''){
+		if(verificaCnpj3 && verificaCnpj3.trim() !== ""){
 			validaAnexos('Contrato-ou-Estatuto-Social-3');
 			validaAnexos('DD-3');
 		}
