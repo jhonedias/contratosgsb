@@ -400,7 +400,6 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('Proposta-Comercial');
 		validaAnexos('RFA-ou-g360');
-		validaAnexos('Mapa-de-stand');
 	}
 	if(tipoContrato === 'Speaker (master/eventual)'){
 		validaAnexos('RFA-ou-g360');
