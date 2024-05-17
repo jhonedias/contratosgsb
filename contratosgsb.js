@@ -104,6 +104,7 @@ $('#avancar-2').click(function(){
 		$('.show-speaker-anexos').show();
 		$('.hide-speaker').hide();
 		$('#form1-valor-total').maskMoney({prefix:'', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
+		$('#plus-cpf, #plus-cnpj').hide();
 	}
 	//contratante
 	validaSelect('form1-empresa-contratante');
