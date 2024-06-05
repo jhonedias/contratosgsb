@@ -90,6 +90,8 @@ $('#avancar-2').click(function(){
 		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
 		$('#txt-due-diligence-1, #txt-due-diligence-2, #txt-due-diligence-3').find('.campo-obrigatorio').hide();
 		var optionEmpresa = $('#form1-empresa-contratante option[value="KITE"]');
+		var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
+		linkDropdownKit.text('KITE/GILEAD');
         optionEmpresa.val('KITE/GILEAD');
         optionEmpresa.text('KITE/GILEAD');
 	}
@@ -525,6 +527,8 @@ function reiniciaForm(){
 	$(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 	$('#plus-cpf, #plus-cnpj').show();
 	var optionEmpresa = $('#form1-empresa-contratante option[value="KITE/GILEAD"]');
+	var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
+	linkDropdownKit.text('KITE/GILEAD');
 	optionEmpresa.val('KITE');
 	optionEmpresa.text('KITE');
 }
