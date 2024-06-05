@@ -21,6 +21,15 @@ $('#avancar-1').click(function(){
 });
 //
 
+//Etapa 1
+$('#avancar-1').click(function(){
+	var optionEmpresa = $('#form1-empresa-contratante option[value="KITE"]');
+	var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
+	linkDropdownKit.text('KITE/GILEAD');
+	optionEmpresa.val('KITE/GILEAD');
+	optionEmpresa.text('KITE/GILEAD');
+});
+
 //Etapa 2
 $('#avancar-2').click(function(){
 	controlePassem = true;
@@ -89,11 +98,6 @@ $('#avancar-2').click(function(){
 		$('#txt-radio--dadoscadastrais-pj').text('Parte pessoa jurídica');
 		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
 		$('#txt-due-diligence-1, #txt-due-diligence-2, #txt-due-diligence-3').find('.campo-obrigatorio').hide();
-		var optionEmpresa = $('#form1-empresa-contratante option[value="KITE"]');
-		var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
-		linkDropdownKit.text('KITE/GILEAD');
-        optionEmpresa.val('KITE/GILEAD');
-        optionEmpresa.text('KITE/GILEAD');
 	}
 	//patrocinio
 	if(tipoContrato === 'Patrocínio') {
