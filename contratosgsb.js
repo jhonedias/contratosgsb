@@ -530,7 +530,7 @@ function reiniciaForm(){
 	$('#plus-cpf, #plus-cnpj').show();
 	var optionEmpresa = $('#form1-empresa-contratante option[value="KITE/GILEAD"]');
 	var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
-	linkDropdownKit.text('KITE/GILEAD');
+	linkDropdownKit.text('KITE');
 	optionEmpresa.val('KITE');
 	optionEmpresa.text('KITE');
 }
