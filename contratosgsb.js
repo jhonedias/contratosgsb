@@ -8,6 +8,13 @@ var controlePassem = true;
 $('#avancar-1').click(function(){
 	var tipoContrato = $('#tipo-contrato').val();
 	$('#txt-data-e-numeracao, #txt-forma-de-entrega, #txt-condicoes-pagamento, #txt-local-entrega').find('.campo-obrigatorio').show();
+	if(tipoContrato === 'CDA'){
+		var optionEmpresa = $('#form1-empresa-contratante option[value="KITE"]');
+		var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
+		linkDropdownKit.text('KITE/GILEAD');
+        optionEmpresa.val('KITE/GILEAD');
+        optionEmpresa.text('KITE/GILEAD');
+	}
 	if (tipoContrato === '') {
 		$('#tipo-contrato').parent().parent().addClass('validacao-erro');
 	} else {
@@ -20,15 +27,6 @@ $('#avancar-1').click(function(){
 	}
 });
 //
-
-//Etapa 1
-$('#avancar-1').click(function(){
-	var optionEmpresa = $('#form1-empresa-contratante option[value="KITE"]');
-	var linkDropdownKit = $('#form1-empresa-contratante').parent().find('a:last-child');
-	linkDropdownKit.text('KITE/GILEAD');
-	optionEmpresa.val('KITE/GILEAD');
-	optionEmpresa.text('KITE/GILEAD');
-});
 
 //Etapa 2
 $('#avancar-2').click(function(){
