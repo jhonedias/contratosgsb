@@ -1,4 +1,4 @@
-//v1.0 - 18/04/2024
+//v1.1 - 05/06/2024
 $(".format-data").mask("99/99/9999");
 $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
@@ -89,6 +89,9 @@ $('#avancar-2').click(function(){
 		$('#txt-radio--dadoscadastrais-pj').text('Parte pessoa jurídica');
 		$('#txt-radio--dadoscadastrais-pf').text('Parte pessoa física');
 		$('#txt-due-diligence-1, #txt-due-diligence-2, #txt-due-diligence-3').find('.campo-obrigatorio').hide();
+		var optionEmpresa = $('#form1-empresa-contratante option[value="KITE"]');
+        optionEmpresa.val('KITE/GILEAD');
+        optionEmpresa.text('KITE/GILEAD');
 	}
 	//patrocinio
 	if(tipoContrato === 'Patrocínio') {
@@ -521,6 +524,9 @@ function reiniciaForm(){
 	$('#aviso-pular-etapa').hide();
 	$(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 	$('#plus-cpf, #plus-cnpj').show();
+	var optionEmpresa = $('#form1-empresa-contratante option[value="KITE/GILEAD"]');
+	optionEmpresa.val('KITE');
+	optionEmpresa.text('KITE');
 }
 
 //setagem dos botoes de voltar
