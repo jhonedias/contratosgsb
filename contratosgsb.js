@@ -388,7 +388,6 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 		validaAnexos('Contrato-Principal-Contrato-Master');
 		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('E-mail-aprova-o-Value-approval-ou-PR');
-		validaAnexos('DD');
 	}
 	if(tipoContrato === 'Termo de Rescisão e Quitação') {
 		validaAnexos('Contrato-ou-Estatuto-Social');
