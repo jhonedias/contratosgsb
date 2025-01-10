@@ -345,7 +345,7 @@ $('#avancar-5').click(function(){
 	}
 	//Master
 	if(tipoContrato === "Master") {
-		if(docMasterType = 1){
+		if(docMasterType == 1){
 			$('.anexos-14').hide();
 		}else {
 			$('.anexos-13').hide();
