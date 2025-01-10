@@ -1,4 +1,4 @@
-//v1.1 - 05/06/2024
+//v1.2 - 10/01/2025
 $(".format-data").mask("99/99/9999");
 $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
@@ -203,7 +203,7 @@ $('#avancar-3').click(function(){
 		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta');
 		
 		//verifica o tipo de master
-		let tabelaDeDervicos = $('#tabela-de-servicos-sim').val();
+		let tabelaDeDervicos = $('input[name="tabelaDeServicos"]:checked').val();
 		if(tabelaDeDervicos == 'Tabela de serviços e/ou produtos de valores e condições pré-fixadas') {
 			var docMasterType = 1;
 		}else {
