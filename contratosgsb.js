@@ -4,6 +4,7 @@ $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
 $(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 var controlePassem = true;
+const docMasterType = 0;
 //Etapa 1
 $('#avancar-1').click(function(){
 	var tipoContrato = $('#tipo-contrato').val();
@@ -205,9 +206,9 @@ $('#avancar-3').click(function(){
 		//verifica o tipo de master
 		let tabelaDeDervicos = $('input[name="tabelaDeServicos"]:checked').val();
 		if(tabelaDeDervicos == 'Tabela de serviços e/ou produtos de valores e condições pré-fixadas') {
-			var docMasterType = 1;
+			docMasterType = 1;
 		}else {
-			var docMasterType = 2;
+			docMasterType = 2;
 		}
 	}
 	//CDA
