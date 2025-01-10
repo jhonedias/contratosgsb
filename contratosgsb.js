@@ -202,6 +202,11 @@ $('#avancar-3').click(function(){
 	if(tipoContrato === 'Master'){
 		validaRadio('tabelaDeServicos');
 		excluirValidacao.push('form1-data-proposta','form1-numeracao-proposta');
+		
+		//verifica o tipo de master
+		let tabela-de-servicos = $('#tabela-de-servicos-sim').val();
+		console.log(tabela-de-servicos);
+		//if(tabela-de-servicos == '')
 	}
 	//CDA
 	if(tipoContrato === 'CDA'){
