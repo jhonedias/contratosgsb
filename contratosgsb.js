@@ -84,7 +84,6 @@ $('#avancar-2').click(function(){
 		$('.show-master').show();
 		$('.show-master-anexos').show();
 		$('.hide-master').hide();
-		$('#txt-tabela-de-servicos').find('.campo-obrigatorio').hide();
 	}
 	//CDA
 	if(tipoContrato === 'CDA') {
@@ -205,8 +204,11 @@ $('#avancar-3').click(function(){
 		
 		//verifica o tipo de master
 		let tabelaDeDervicos = $('#tabela-de-servicos-sim').val();
-		console.log(tabelaDeDervicos);
-		//if(tabela-de-servicos == '')
+		if(tabelaDeDervicos == 'Tabela de serviços e/ou produtos de valores e condições pré-fixadas') {
+			var docMasterType = 1;
+		}else {
+			var docMasterType = 2;
+		}
 	}
 	//CDA
 	if(tipoContrato === 'CDA'){
@@ -341,6 +343,14 @@ $('#avancar-5').click(function(){
 		validaTxt('Banco','Agencia','Conta');
 		excluirValidacao.push('form1-local-de-execucao');
 	}
+	//Master
+	if(tipoContrato === "Master") {
+		if(docMasterType = 1){
+			$('.anexos-14').hide();
+		}else {
+			$('.anexos-13').hide();
+		}
+	}
 	//speaker
 	if(tipoContrato === 'Speaker (master/eventual)') {
 		validaTxt('Banco','Agencia','Conta');
@@ -408,6 +418,12 @@ $('#form-contrato-gsb').on( "submit", function( event ) {
 	if(tipoContrato === 'Master'){
 		validaAnexos('Contrato-ou-Estatuto-Social');
 		validaAnexos('DD');
+		
+		if(docMasterType == 1) {
+			validaAnexos('Tabela-de-servi-os');
+		}else {
+			validaAnexos('Portif-lio');
+		}
 	}
 	if(tipoContrato === 'Patrocínio'){
 		validaAnexos('Contrato-ou-Estatuto-Social');
