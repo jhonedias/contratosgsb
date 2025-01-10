@@ -4,7 +4,7 @@ $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
 $(".format-reais").maskMoney({prefix:'R$ ', allowNegative: false, allowZero: true, thousands:'.',decimal:',', affixesStay: false});
 var controlePassem = true;
-const docMasterType = 0;
+var docMasterType = 0;
 //Etapa 1
 $('#avancar-1').click(function(){
 	var tipoContrato = $('#tipo-contrato').val();
