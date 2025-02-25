@@ -188,7 +188,7 @@ $('#avancar-3').click(function(){
 		validaTxt('Nome-da-testemunha');
 		validaEmail('email-da-testemunha');
 		validaTxt('CPF-da-testemunha');
-		excluirValidacao.push('form1-forma-de-entrega', 'form1-objeto');
+		excluirValidacao.push('form1-forma-de-entrega');
 	}
 	//procuracao
 	if(tipoContrato === 'Procuração'){
