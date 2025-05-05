@@ -1,4 +1,4 @@
-//v1.2 - 10/01/2025
+//v1.3 - 05/05/2025
 $(".format-data").mask("99/99/9999");
 $(".format-cpf").mask("999.999.999-99");
 $('.format-cnpj').mask("99.999.999/9999-99");
@@ -127,6 +127,11 @@ $('#avancar-2').click(function(){
 	//
 	//Area
 	validaSelect('form1-area');
+    //Area
+	validaSelect('Idioma');
+    if($('#idioma').val() === 'outro'){
+        validaTxt('Outro---idioma');
+    }
 	//
 	passagem('2','3',controlePassem);
 });
@@ -621,4 +626,14 @@ $(document).ready(function(){
 			visibleStep.find(".next-step").click();
 		}
 	});
+
+    
+    $('#Idioma').on('change', function() {
+      if ($(this).val().toLowerCase() === 'outro') {
+        $('.outro-idioma').show();
+      } else {
+        $('.outro-idioma').hide();
+      }
+    });
+    
 });
