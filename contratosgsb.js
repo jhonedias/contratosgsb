@@ -129,7 +129,7 @@ $('#avancar-2').click(function(){
 	validaSelect('form1-area');
     //Area
 	validaSelect('Idioma');
-    if($('#idioma').val() === 'outro'){
+    if($('#Idioma').val() === 'outro'){
         validaTxt('Outro---idioma');
     }
 	//
